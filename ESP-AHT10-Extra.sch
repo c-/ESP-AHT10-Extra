@@ -246,7 +246,7 @@ U 1 1 5DBE6669
 P 6000 2200
 F 0 "U4" H 5650 1750 50  0000 C CNN
 F 1 "AHT10" H 6300 1750 50  0000 C CNN
-F 2 "CPB:AHT10" H 6000 2200 50  0001 C CNN
+F 2 "CPB:AHT10-HandSolder" H 6000 2200 50  0001 C CNN
 F 3 "" H 6000 2200 50  0001 C CNN
 	1    6000 2200
 	1    0    0    -1  
@@ -383,12 +383,12 @@ Wire Wire Line
 $Comp
 L Interface_USB:CH330N U1
 U 1 1 5DC02823
-P 2250 3200
-F 0 "U1" H 2250 3678 50  0000 C CNN
-F 1 "CH330N" H 2250 3587 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 2100 3950 50  0001 C CNN
-F 3 "http://www.wch.cn/downloads/file/240.html" H 2150 3400 50  0001 C CNN
-	1    2250 3200
+P 1850 3250
+F 0 "U1" H 1850 3728 50  0000 C CNN
+F 1 "CH330N" H 1850 3637 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 1700 4000 50  0001 C CNN
+F 3 "http://www.wch.cn/downloads/file/240.html" H 1750 3450 50  0001 C CNN
+	1    1850 3250
 	1    0    0    -1  
 $EndComp
 Text GLabel 1500 1400 2    50   Input ~ 0
@@ -399,68 +399,52 @@ Wire Wire Line
 	1450 1400 1500 1400
 Wire Wire Line
 	1450 1500 1500 1500
-Text GLabel 1650 3400 0    50   Input ~ 0
+Text GLabel 4450 3350 2    50   Input ~ 0
 UD-
-Text GLabel 1650 3300 0    50   Input ~ 0
+Text GLabel 3300 3350 0    50   Input ~ 0
 UD+
 Wire Wire Line
-	1650 3300 1850 3300
+	1250 3350 1450 3350
 Wire Wire Line
-	1650 3400 1850 3400
-NoConn ~ 2650 3400
+	1250 3450 1450 3450
+NoConn ~ 2250 3450
 $Comp
 L power:GND #PWR01
 U 1 1 5DC098ED
-P 2250 3700
-F 0 "#PWR01" H 2250 3450 50  0001 C CNN
-F 1 "GND" H 2255 3527 50  0000 C CNN
-F 2 "" H 2250 3700 50  0001 C CNN
-F 3 "" H 2250 3700 50  0001 C CNN
-	1    2250 3700
+P 1850 3750
+F 0 "#PWR01" H 1850 3500 50  0001 C CNN
+F 1 "GND" H 1855 3577 50  0000 C CNN
+F 2 "" H 1850 3750 50  0001 C CNN
+F 3 "" H 1850 3750 50  0001 C CNN
+	1    1850 3750
 	1    0    0    -1  
 $EndComp
-Text GLabel 1600 2550 0    50   Input ~ 0
+Text GLabel 800  2600 0    50   Input ~ 0
 3V3
 Wire Wire Line
-	1600 2550 1700 2550
-Wire Wire Line
-	2250 2550 2250 2900
-Wire Wire Line
-	1700 2550 1700 3100
-Wire Wire Line
-	1700 3100 1850 3100
-Connection ~ 1700 2550
-Wire Wire Line
-	1700 2550 2250 2550
+	1850 2600 1850 2950
 $Comp
 L Device:C_Small C3
 U 1 1 5DC0C395
-P 1850 3700
-F 0 "C3" V 1621 3700 50  0000 C CNN
-F 1 "100n" V 1712 3700 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0805" H 1850 3700 50  0001 C CNN
-F 3 "~" H 1850 3700 50  0001 C CNN
-	1    1850 3700
-	0    1    1    0   
+P 850 2950
+F 0 "C3" V 621 2950 50  0000 C CNN
+F 1 "100n" V 712 2950 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 850 2950 50  0001 C CNN
+F 3 "~" H 850 2950 50  0001 C CNN
+	1    850  2950
+	1    0    0    1   
 $EndComp
 Wire Wire Line
-	1700 3100 1700 3700
-Wire Wire Line
-	1700 3700 1750 3700
-Connection ~ 1700 3100
-Wire Wire Line
-	1950 3700 2250 3700
-Wire Wire Line
-	2250 3600 2250 3700
-Connection ~ 2250 3700
-Text GLabel 2850 3200 2    50   Input ~ 0
+	1850 3650 1850 3750
+Connection ~ 1850 3750
+Text GLabel 2450 3250 2    50   Input ~ 0
 eTX
-Text GLabel 2850 3100 2    50   Input ~ 0
+Text GLabel 2450 3150 2    50   Input ~ 0
 eRX
 Wire Wire Line
-	2650 3100 2850 3100
+	2250 3150 2450 3150
 Wire Wire Line
-	2650 3200 2850 3200
+	2250 3250 2450 3250
 $Comp
 L Switch:SW_Push SW2
 U 1 1 5DC1481A
@@ -501,6 +485,89 @@ Wire Wire Line
 Connection ~ 1550 6700
 Wire Wire Line
 	1550 6700 2750 6700
-Text Notes 1250 3950 0    50   ~ 0
-Sharing the decouple\nmight be a bad idea.
+$Comp
+L Device:C_Small C6
+U 1 1 5DC2141A
+P 1150 3150
+F 0 "C6" V 921 3150 50  0000 C CNN
+F 1 "100n" V 1012 3150 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 1150 3150 50  0001 C CNN
+F 3 "~" H 1150 3150 50  0001 C CNN
+	1    1150 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	800  2600 850  2600
+Wire Wire Line
+	850  2850 850  2600
+Connection ~ 850  2600
+Wire Wire Line
+	850  3050 850  3750
+Wire Wire Line
+	850  3750 1000 3750
+Wire Wire Line
+	1050 3150 1000 3150
+Wire Wire Line
+	1000 3150 1000 3750
+Wire Wire Line
+	1000 3750 1850 3750
+$Comp
+L Power_Protection:USBLC6-2SC6 U5
+U 1 1 5DC39FB1
+P 3850 3250
+F 0 "U5" H 3850 3928 50  0000 C CNN
+F 1 "USBLC6-2SC6" H 3850 3837 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 3100 3650 50  0001 C CNN
+F 3 "http://www2.st.com/resource/en/datasheet/CD00050750.pdf" H 4050 3600 50  0001 C CNN
+	1    3850 3250
+	1    0    0    -1  
+$EndComp
+Text GLabel 1250 3350 0    50   Input ~ 0
+UDP+
+Text GLabel 1250 3450 0    50   Input ~ 0
+UDP-
+Connection ~ 1000 3750
+Wire Wire Line
+	1250 3150 1350 3150
+$Comp
+L power:GND #PWR05
+U 1 1 5DC4A8A6
+P 3850 3850
+F 0 "#PWR05" H 3850 3600 50  0001 C CNN
+F 1 "GND" H 3855 3677 50  0000 C CNN
+F 2 "" H 3850 3850 50  0001 C CNN
+F 3 "" H 3850 3850 50  0001 C CNN
+	1    3850 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1800 1050 1800 1300
+Text GLabel 1800 1050 1    50   Input ~ 0
+VBUS
+Text GLabel 3850 2750 1    50   Input ~ 0
+VBUS
+Text GLabel 3300 3150 0    50   Input ~ 0
+UDP+
+Text GLabel 4450 3150 2    50   Input ~ 0
+UDP-
+Wire Wire Line
+	3300 3150 3350 3150
+Wire Wire Line
+	3300 3350 3350 3350
+Wire Wire Line
+	4350 3150 4450 3150
+Wire Wire Line
+	4350 3350 4450 3350
+Wire Wire Line
+	3850 3750 3850 3850
+Wire Wire Line
+	850  2600 1350 2600
+Wire Wire Line
+	1350 2600 1350 3150
+Connection ~ 1350 2600
+Wire Wire Line
+	1350 2600 1850 2600
+Connection ~ 1350 3150
+Wire Wire Line
+	1350 3150 1450 3150
 $EndSCHEMATC
