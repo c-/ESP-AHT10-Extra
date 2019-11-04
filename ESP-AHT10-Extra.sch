@@ -28,12 +28,12 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x04 J1
 U 1 1 5DBDB3F6
-P 1250 1400
-F 0 "J1" V 1330 1392 50  0000 L CNN
-F 1 "USB" H 1330 1301 50  0000 L CNN
-F 2 "CPB:usb-PCB" H 1250 1400 50  0001 C CNN
-F 3 "~" H 1250 1400 50  0001 C CNN
-	1    1250 1400
+P 900 1400
+F 0 "J1" V 980 1392 50  0000 L CNN
+F 1 "USB" H 980 1301 50  0000 L CNN
+F 2 "CPB:usb-PCB" H 900 1400 50  0001 C CNN
+F 3 "~" H 900 1400 50  0001 C CNN
+	1    900  1400
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -233,7 +233,6 @@ Wire Wire Line
 	2600 1800 2600 1850
 Wire Wire Line
 	1800 1300 1800 1450
-Connection ~ 1800 1300
 Wire Wire Line
 	1800 1300 2050 1300
 Wire Wire Line
@@ -256,8 +255,6 @@ Wire Wire Line
 Wire Wire Line
 	1450 1800 1800 1800
 Connection ~ 1800 1800
-Wire Wire Line
-	1450 1300 1800 1300
 Text GLabel 7000 2300 2    50   Input ~ 0
 SCL
 Text GLabel 7000 2100 2    50   Input ~ 0
@@ -395,10 +392,6 @@ Text GLabel 1500 1400 2    50   Input ~ 0
 UD-
 Text GLabel 1500 1500 2    50   Input ~ 0
 UD+
-Wire Wire Line
-	1450 1400 1500 1400
-Wire Wire Line
-	1450 1500 1500 1500
 Text GLabel 4450 3350 2    50   Input ~ 0
 UD-
 Text GLabel 3300 3350 0    50   Input ~ 0
@@ -540,9 +533,7 @@ F 3 "" H 3850 3850 50  0001 C CNN
 	1    3850 3850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1800 1050 1800 1300
-Text GLabel 1800 1050 1    50   Input ~ 0
+Text GLabel 2100 1050 2    50   Output ~ 0
 VBUS
 Text GLabel 3850 2750 1    50   Input ~ 0
 VBUS
@@ -570,4 +561,30 @@ Wire Wire Line
 Connection ~ 1350 3150
 Wire Wire Line
 	1350 3150 1450 3150
+$Comp
+L Device:Fuse_Small F1
+U 1 1 5DC64535
+P 1400 1300
+F 0 "F1" H 1400 1485 50  0000 C CNN
+F 1 "500mA" H 1400 1394 50  0000 C CNN
+F 2 "Fuse:Fuse_0805_2012Metric" H 1400 1300 50  0001 C CNN
+F 3 "~" H 1400 1300 50  0001 C CNN
+	1    1400 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 1300 1300 1300
+Wire Wire Line
+	1100 1400 1500 1400
+Wire Wire Line
+	1100 1500 1500 1500
+Wire Wire Line
+	1100 1600 1450 1600
+Wire Wire Line
+	1500 1300 1800 1300
+Connection ~ 1800 1300
+Wire Wire Line
+	2050 1050 2050 1300
+Wire Wire Line
+	2050 1050 2100 1050
 $EndSCHEMATC
