@@ -407,8 +407,6 @@ F 3 "" H 8600 2250 50  0001 C CNN
 	1    8600 2250
 	1    0    0    -1  
 $EndComp
-Text GLabel 7550 1100 0    50   Input ~ 0
-3V3
 Wire Wire Line
 	8600 1100 8600 1200
 $Comp
@@ -425,14 +423,10 @@ $EndComp
 Wire Wire Line
 	8600 2150 8600 2250
 Connection ~ 8600 2250
-Text GLabel 9200 1750 2    50   Input ~ 0
+Text GLabel 9400 1750 2    50   Input ~ 0
 eTX
-Text GLabel 9200 1650 2    50   Output ~ 0
+Text GLabel 9650 1650 2    50   Output ~ 0
 eRX
-Wire Wire Line
-	9000 1650 9200 1650
-Wire Wire Line
-	9000 1750 9200 1750
 $Comp
 L Switch:SW_Push SW2
 U 1 1 5DC1481A
@@ -542,8 +536,6 @@ F 3 "~" H 1550 3050 50  0001 C CNN
 	1    1550 3050
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8000 1650 8100 1650
 $Comp
 L power:GND #PWR0101
 U 1 1 5DC645A4
@@ -609,19 +601,7 @@ Wire Wire Line
 Text Notes 5600 2700 0    50   ~ 0
 NOTE: maybe overkill; I can't\nfind an example of a board\nwith WCH chips and ESD\nprotection. Apparently WCH\nchips have on-board termination\nresistors.
 Wire Wire Line
-	8100 1650 8100 1100
-Connection ~ 8100 1650
-Wire Wire Line
-	8100 1650 8200 1650
-Connection ~ 8100 1100
-Wire Wire Line
-	8100 1100 8600 1100
-Wire Wire Line
-	7550 1100 8100 1100
-Wire Wire Line
 	7600 1200 7800 1200
-Wire Wire Line
-	7600 1200 7600 1650
 Wire Wire Line
 	8000 1200 8600 1200
 Connection ~ 8600 1200
@@ -631,7 +611,45 @@ Wire Wire Line
 	7600 2250 8600 2250
 Wire Wire Line
 	7800 1650 7600 1650
-Connection ~ 7600 1650
 Wire Wire Line
 	7600 1650 7600 2250
+$Comp
+L Device:R_Small R8
+U 1 1 5DC99AD6
+P 9150 1750
+F 0 "R8" H 9209 1796 50  0000 L CNN
+F 1 "330R" H 9209 1705 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 9150 1750 50  0001 C CNN
+F 3 "~" H 9150 1750 50  0001 C CNN
+	1    9150 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R9
+U 1 1 5DC99C49
+P 9300 1650
+F 0 "R9" H 9359 1696 50  0000 L CNN
+F 1 "330R" H 9359 1605 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 9300 1650 50  0001 C CNN
+F 3 "~" H 9300 1650 50  0001 C CNN
+	1    9300 1650
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	9400 1650 9650 1650
+Wire Wire Line
+	9250 1750 9400 1750
+Wire Wire Line
+	9000 1650 9200 1650
+Wire Wire Line
+	9000 1750 9050 1750
+Wire Wire Line
+	8000 1650 8200 1650
+Wire Wire Line
+	7550 1100 8600 1100
+Text GLabel 7550 1100 0    50   Input ~ 0
+5V
+Wire Wire Line
+	7600 1200 7600 1650
+Connection ~ 7600 1650
 $EndSCHEMATC
