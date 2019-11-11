@@ -185,7 +185,7 @@ L Device:C_Small C2
 U 1 1 5DBE3E3F
 P 1950 3300
 F 0 "C2" H 2042 3346 50  0000 L CNN
-F 1 "1u" H 2042 3255 50  0000 L CNN
+F 1 "10u" H 2042 3255 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805" H 1950 3300 50  0001 C CNN
 F 3 "~" H 1950 3300 50  0001 C CNN
 	1    1950 3300
@@ -196,7 +196,7 @@ L Device:C_Small C4
 U 1 1 5DBE3E90
 P 3350 3300
 F 0 "C4" H 3442 3346 50  0000 L CNN
-F 1 "2.2u" H 3442 3255 50  0000 L CNN
+F 1 "10u" H 3442 3255 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805" H 3350 3300 50  0001 C CNN
 F 3 "~" H 3350 3300 50  0001 C CNN
 	1    3350 3300
@@ -410,17 +410,17 @@ $EndComp
 Text GLabel 7550 1100 0    50   Input ~ 0
 3V3
 Wire Wire Line
-	8600 1100 8600 1450
+	8600 1100 8600 1200
 $Comp
 L Device:C_Small C3
 U 1 1 5DC0C395
-P 7600 1450
-F 0 "C3" V 7371 1450 50  0000 C CNN
-F 1 "100n" V 7462 1450 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0805" H 7600 1450 50  0001 C CNN
-F 3 "~" H 7600 1450 50  0001 C CNN
-	1    7600 1450
-	1    0    0    1   
+P 7900 1200
+F 0 "C3" V 7671 1200 50  0000 C CNN
+F 1 "100n" V 7762 1200 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 7900 1200 50  0001 C CNN
+F 3 "~" H 7900 1200 50  0001 C CNN
+	1    7900 1200
+	0    -1   1    0   
 $EndComp
 Wire Wire Line
 	8600 2150 8600 2250
@@ -484,21 +484,6 @@ F 3 "~" H 7900 1650 50  0001 C CNN
 	1    7900 1650
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	7550 1100 7600 1100
-Wire Wire Line
-	7600 1350 7600 1100
-Connection ~ 7600 1100
-Wire Wire Line
-	7600 1550 7600 2250
-Wire Wire Line
-	7600 2250 7750 2250
-Wire Wire Line
-	7800 1650 7750 1650
-Wire Wire Line
-	7750 1650 7750 2250
-Wire Wire Line
-	7750 2250 8600 2250
 $Comp
 L Power_Protection:USBLC6-2SC6 U5
 U 1 1 5DC39FB1
@@ -514,7 +499,6 @@ Text GLabel 8000 1850 0    50   Input ~ 0
 UDP+
 Text GLabel 8000 1950 0    50   Input ~ 0
 UDP-
-Connection ~ 7750 2250
 $Comp
 L power:GND #PWR05
 U 1 1 5DC4A8A6
@@ -559,9 +543,7 @@ F 3 "~" H 1550 3050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7600 1100 8600 1100
-Wire Wire Line
-	8000 1650 8200 1650
+	8000 1650 8100 1650
 $Comp
 L power:GND #PWR0101
 U 1 1 5DC645A4
@@ -625,5 +607,31 @@ Wire Wire Line
 Wire Wire Line
 	6050 1200 6050 1350
 Text Notes 5600 2700 0    50   ~ 0
-NOTE: maybe overkill; I can't\nfind an example of a board\nwith WCH chips and ESD\nprotection.\nTermination resistors (22R?)\nmight also not be a bad idea.
+NOTE: maybe overkill; I can't\nfind an example of a board\nwith WCH chips and ESD\nprotection. Apparently WCH\nchips have on-board termination\nresistors.
+Wire Wire Line
+	8100 1650 8100 1100
+Connection ~ 8100 1650
+Wire Wire Line
+	8100 1650 8200 1650
+Connection ~ 8100 1100
+Wire Wire Line
+	8100 1100 8600 1100
+Wire Wire Line
+	7550 1100 8100 1100
+Wire Wire Line
+	7600 1200 7800 1200
+Wire Wire Line
+	7600 1200 7600 1650
+Wire Wire Line
+	8000 1200 8600 1200
+Connection ~ 8600 1200
+Wire Wire Line
+	8600 1200 8600 1450
+Wire Wire Line
+	7600 2250 8600 2250
+Wire Wire Line
+	7800 1650 7600 1650
+Connection ~ 7600 1650
+Wire Wire Line
+	7600 1650 7600 2250
 $EndSCHEMATC
