@@ -13,7 +13,7 @@ and clearances reflect that.
 
 ![PCB Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back.jpg)
 
-# Build of Materials
+# Bill of Materials
 
 Most parts are purchased from LCSC. Some of these choices aren't ideal, but I had them on hand and they work.
 The only things I plan on doing differently is replacing the fuse with a 300mA and changing the HT-7233 out for a
