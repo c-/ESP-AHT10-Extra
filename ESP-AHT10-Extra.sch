@@ -28,12 +28,12 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x04 J1
 U 1 1 5DBDB3F6
-P 8000 1250
-F 0 "J1" V 8080 1242 50  0000 L CNN
-F 1 "USB" H 8080 1151 50  0000 L CNN
-F 2 "CPB:usb-PCB" H 8000 1250 50  0001 C CNN
-F 3 "~" H 8000 1250 50  0001 C CNN
-	1    8000 1250
+P 5550 3100
+F 0 "J1" V 5630 3092 50  0000 L CNN
+F 1 "USB" H 5630 3001 50  0000 L CNN
+F 2 "CPB:usb-PCB" H 5550 3100 50  0001 C CNN
+F 3 "~" H 5550 3100 50  0001 C CNN
+	1    5550 3100
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -158,7 +158,6 @@ Wire Wire Line
 Wire Wire Line
 	1450 6200 1750 6200
 NoConn ~ 1750 6000
-NoConn ~ 1750 6300
 NoConn ~ 1750 6400
 NoConn ~ 1750 6500
 NoConn ~ 3550 6400
@@ -383,13 +382,13 @@ F 3 "http://www.wch.cn/downloads/file/240.html" H 9050 5750 50  0001 C CNN
 	1    9150 5550
 	1    0    0    -1  
 $EndComp
-Text GLabel 8300 1250 2    50   Input ~ 0
+Text GLabel 5850 3100 2    50   Input ~ 0
 UD-
-Text GLabel 8300 1350 2    50   Input ~ 0
+Text GLabel 5850 3200 2    50   Input ~ 0
 UD+
-Text GLabel 9050 3600 2    50   Input ~ 0
+Text GLabel 10600 3600 2    50   Input ~ 0
 UD-
-Text GLabel 7900 3600 0    50   Input ~ 0
+Text GLabel 9450 3600 0    50   Input ~ 0
 UD+
 Wire Wire Line
 	8550 5650 8750 5650
@@ -478,12 +477,12 @@ $EndComp
 $Comp
 L Power_Protection:USBLC6-2SC6 U5
 U 1 1 5DC39FB1
-P 8450 3500
-F 0 "U5" H 8450 4178 50  0000 C CNN
-F 1 "USBLC6-2SC6" H 8450 4087 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6" H 7700 3900 50  0001 C CNN
-F 3 "http://www2.st.com/resource/en/datasheet/CD00050750.pdf" H 8650 3850 50  0001 C CNN
-	1    8450 3500
+P 10000 3500
+F 0 "U5" H 10000 4178 50  0000 C CNN
+F 1 "USBLC6-2SC6" H 10000 4087 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 9250 3900 50  0001 C CNN
+F 3 "http://www2.st.com/resource/en/datasheet/CD00050750.pdf" H 10200 3850 50  0001 C CNN
+	1    10000 3500
 	1    0    0    -1  
 $EndComp
 Text GLabel 8550 5650 0    50   Input ~ 0
@@ -493,28 +492,28 @@ UDP-
 $Comp
 L power:GND #PWR05
 U 1 1 5DC4A8A6
-P 8450 4100
-F 0 "#PWR05" H 8450 3850 50  0001 C CNN
-F 1 "GND" H 8455 3927 50  0000 C CNN
-F 2 "" H 8450 4100 50  0001 C CNN
-F 3 "" H 8450 4100 50  0001 C CNN
-	1    8450 4100
+P 10000 4100
+F 0 "#PWR05" H 10000 3850 50  0001 C CNN
+F 1 "GND" H 10005 3927 50  0000 C CNN
+F 2 "" H 10000 4100 50  0001 C CNN
+F 3 "" H 10000 4100 50  0001 C CNN
+	1    10000 4100
 	1    0    0    -1  
 $EndComp
-Text GLabel 7900 3400 0    50   Output ~ 0
+Text GLabel 9450 3400 0    50   Output ~ 0
 UDP+
-Text GLabel 9050 3400 2    50   Output ~ 0
+Text GLabel 10600 3400 2    50   Output ~ 0
 UDP-
 Wire Wire Line
-	7900 3400 7950 3400
+	9450 3400 9500 3400
 Wire Wire Line
-	7900 3600 7950 3600
+	9450 3600 9500 3600
 Wire Wire Line
-	8950 3400 9050 3400
+	10500 3400 10600 3400
 Wire Wire Line
-	8950 3600 9050 3600
+	10500 3600 10600 3600
 Wire Wire Line
-	8450 4000 8450 4100
+	10000 4000 10000 4100
 Connection ~ 1800 1350
 $Comp
 L Device:Polyfuse_Small F1
@@ -530,63 +529,63 @@ $EndComp
 $Comp
 L power:GND #PWR0101
 U 1 1 5DC645A4
-P 8350 1500
-F 0 "#PWR0101" H 8350 1250 50  0001 C CNN
-F 1 "GND" H 8355 1327 50  0000 C CNN
-F 2 "" H 8350 1500 50  0001 C CNN
-F 3 "" H 8350 1500 50  0001 C CNN
-	1    8350 1500
+P 5900 3350
+F 0 "#PWR0101" H 5900 3100 50  0001 C CNN
+F 1 "GND" H 5905 3177 50  0000 C CNN
+F 2 "" H 5900 3350 50  0001 C CNN
+F 3 "" H 5900 3350 50  0001 C CNN
+	1    5900 3350
 	1    0    0    -1  
 $EndComp
-Text GLabel 8300 1150 2    50   Output ~ 0
+Text GLabel 5850 3000 2    50   Output ~ 0
 VBUS
 Text GLabel 1050 1350 0    50   Input ~ 0
 VBUS
 Wire Wire Line
-	8200 1150 8300 1150
+	5750 3000 5850 3000
 Wire Wire Line
-	8200 1250 8300 1250
+	5750 3100 5850 3100
 Wire Wire Line
-	8200 1350 8300 1350
+	5750 3200 5850 3200
 Wire Wire Line
-	8200 1450 8350 1450
+	5750 3300 5900 3300
 Wire Wire Line
-	8350 1450 8350 1500
+	5900 3300 5900 3350
 Text GLabel 3350 1000 2    50   Output ~ 0
 5V
 $Comp
 L Device:C_Small C7
 U 1 1 5DC83A5A
-P 8900 2850
-F 0 "C7" V 8671 2850 50  0000 C CNN
-F 1 "100n" V 8762 2850 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0805" H 8900 2850 50  0001 C CNN
-F 3 "~" H 8900 2850 50  0001 C CNN
-	1    8900 2850
+P 10450 2850
+F 0 "C7" V 10221 2850 50  0000 C CNN
+F 1 "100n" V 10312 2850 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 10450 2850 50  0001 C CNN
+F 3 "~" H 10450 2850 50  0001 C CNN
+	1    10450 2850
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	8450 2700 8450 2850
+	10000 2700 10000 2850
 Wire Wire Line
-	8450 2850 8800 2850
-Connection ~ 8450 2850
+	10000 2850 10350 2850
+Connection ~ 10000 2850
 Wire Wire Line
-	8450 2850 8450 3000
+	10000 2850 10000 3000
 $Comp
 L power:GND #PWR06
 U 1 1 5DC88A59
-P 9050 3000
-F 0 "#PWR06" H 9050 2750 50  0001 C CNN
-F 1 "GND" H 9055 2827 50  0000 C CNN
-F 2 "" H 9050 3000 50  0001 C CNN
-F 3 "" H 9050 3000 50  0001 C CNN
-	1    9050 3000
+P 10600 3000
+F 0 "#PWR06" H 10600 2750 50  0001 C CNN
+F 1 "GND" H 10605 2827 50  0000 C CNN
+F 2 "" H 10600 3000 50  0001 C CNN
+F 3 "" H 10600 3000 50  0001 C CNN
+	1    10600 3000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9000 2850 9050 2850
+	10550 2850 10600 2850
 Wire Wire Line
-	9050 2850 9050 3000
+	10600 2850 10600 3000
 Text Notes 5800 5550 0    50   ~ 0
 NOTE: Apparently WCH\nchips have on-board USB\ntermination resistors.
 Wire Wire Line
@@ -668,31 +667,29 @@ Wire Wire Line
 	7950 4900 9150 4900
 Wire Wire Line
 	1350 1350 1450 1350
-Text GLabel 8450 2700 1    50   Input ~ 0
+Text GLabel 10000 2700 1    50   Input ~ 0
 5V
 Wire Wire Line
 	2050 1350 2050 1000
 Wire Wire Line
 	2050 1000 3350 1000
-Text Notes 5850 700  0    59   ~ 12
+Text Notes 4650 2500 0    59   ~ 12
 USB Connector
-Text Notes 5150 700  0    59   ~ 12
+Text Notes 3750 650  0    59   ~ 12
 Power
-Text Notes 5800 2550 0    59   ~ 12
+Text Notes 8350 2500 0    59   ~ 12
 ESD TVS Diode
 Text Notes 5800 4850 0    59   ~ 12
 USB Controller
-Text Notes 4550 2500 0    59   ~ 12
+Text Notes 3050 2550 0    59   ~ 12
 Temperature Sensor
-Text Notes 4950 4850 0    59   ~ 12
+Text Notes 3400 4850 0    59   ~ 12
 ESP-8266
 Wire Notes Line
 	600  2300 11100 2300
 Wire Notes Line
 	600  4600 11100 4600
-Wire Notes Line
-	5600 600  5600 7700
-Text Notes 5800 3000 0    50   ~ 0
+Text Notes 8350 2950 0    50   ~ 0
 NOTE: This isn't strictly critical\nfor this application, but it's cheap\ninsurance if you have the part\nhandy.
 Text Notes 600  2150 0    50   ~ 0
 NOTE: Diode is overkill\nsince there's no easy way to\nconnect another power source.
@@ -707,4 +704,87 @@ Text GLabel 9950 5750 2    50   Output ~ 0
 RESET
 Wire Wire Line
 	9550 5750 9950 5750
+Wire Notes Line
+	4450 7700 4450 550 
+$Comp
+L LED:SK6812 D2
+U 1 1 5DD551FE
+P 6250 1250
+F 0 "D2" H 6591 1296 50  0000 L CNN
+F 1 "SK6812" H 6591 1205 50  0000 L CNN
+F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 6300 950 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/product-files/1138/SK6812+LED+datasheet+.pdf" H 6350 875 50  0001 L TNN
+	1    6250 1250
+	1    0    0    -1  
+$EndComp
+Text GLabel 1750 6300 0    50   Output ~ 0
+WLED
+Text GLabel 5400 1250 0    50   Input ~ 0
+WLED
+$Comp
+L Device:R_Small R9
+U 1 1 5DD55710
+P 5700 1250
+F 0 "R9" H 5759 1296 50  0000 L CNN
+F 1 "470R" H 5759 1205 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" H 5700 1250 50  0001 C CNN
+F 3 "~" H 5700 1250 50  0001 C CNN
+	1    5700 1250
+	0    1    1    0   
+$EndComp
+Text GLabel 6250 750  1    50   Input ~ 0
+5V
+$Comp
+L power:GND #PWR07
+U 1 1 5DD58857
+P 6250 1850
+F 0 "#PWR07" H 6250 1600 50  0001 C CNN
+F 1 "GND" H 6255 1677 50  0000 C CNN
+F 2 "" H 6250 1850 50  0001 C CNN
+F 3 "" H 6250 1850 50  0001 C CNN
+	1    6250 1850
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6550 1250
+$Comp
+L Device:C_Small C9
+U 1 1 5DD5E86C
+P 6600 850
+F 0 "C9" V 6371 850 50  0000 C CNN
+F 1 "47u" V 6462 850 50  0000 C CNN
+F 2 "" H 6600 850 50  0001 C CNN
+F 3 "~" H 6600 850 50  0001 C CNN
+	1    6600 850 
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5400 1250 5600 1250
+Wire Wire Line
+	5800 1250 5950 1250
+Wire Wire Line
+	6250 750  6250 850 
+Wire Wire Line
+	6250 1550 6250 1850
+$Comp
+L power:GND #PWR08
+U 1 1 5DD6B19B
+P 6900 950
+F 0 "#PWR08" H 6900 700 50  0001 C CNN
+F 1 "GND" H 6905 777 50  0000 C CNN
+F 2 "" H 6900 950 50  0001 C CNN
+F 3 "" H 6900 950 50  0001 C CNN
+	1    6900 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 850  6500 850 
+Connection ~ 6250 850 
+Wire Wire Line
+	6250 850  6250 950 
+Wire Wire Line
+	6700 850  6900 850 
+Wire Wire Line
+	6900 850  6900 950 
+Text Notes 4650 700  0    59   ~ 12
+Nightlight
 $EndSCHEMATC
