@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/cpb/src/kicad/ESP-AHT10-Extra/ESP-AHT10-Extra.sch)
-    (date "Sat 16 Nov 2019 09:41:12 AM EST")
+    (date "Sat 16 Nov 2019 09:45:42 AM EST")
     (tool "Eeschema 5.0.2-bee76a0~70~ubuntu18.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -173,7 +173,7 @@
       (sheetpath (names /) (tstamps /))
       (tstamp 5DC83A5A))
     (comp (ref R8)
-      (value 330R)
+      (value 470R)
       (footprint Resistors_SMD:R_0805)
       (datasheet ~)
       (libsource (lib Device) (part R_Small) (description "Resistor, small symbol"))
