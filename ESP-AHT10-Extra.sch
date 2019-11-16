@@ -395,7 +395,6 @@ Wire Wire Line
 	8550 5650 8750 5650
 Wire Wire Line
 	8550 5750 8750 5750
-NoConn ~ 9550 5750
 $Comp
 L power:GND #PWR01
 U 1 1 5DC098ED
@@ -699,4 +698,13 @@ Text Notes 600  2150 0    50   ~ 0
 NOTE: Diode is overkill\nsince there's no easy way to\nconnect another power source.
 Text Notes 650  7600 0    50   ~ 0
 NOTE: R3 isn't needed for\nESP modules having an internal\nRESET pull-up. It'll still work if you\nadd it though.
+Text GLabel 1450 5200 1    50   Input ~ 0
+RESET
+Wire Wire Line
+	1450 5200 1450 5900
+Connection ~ 1450 5900
+Text GLabel 9950 5750 2    50   Output ~ 0
+RESET
+Wire Wire Line
+	9550 5750 9950 5750
 $EndSCHEMATC
