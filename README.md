@@ -13,6 +13,18 @@ and clearances reflect that.
 
 ![PCB Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back.jpg)
 
+# Usage
+
+The temperature sensor is mounted to the backside of the board from the
+ESP-8266. Practically speaking, this means that unless you want to monitor
+the temperature of the MCU, you need the device to spend as much time in
+deep sleep as needed to bring the temperature down to ambient. When waking
+up, it's best to take the temperature reading ASAP during startup,
+prior to doing something like a DHCP connect, during which the
+ESP starts to ramp up the temperatures. Testing shows that this sort of
+delay can spike the temperature reading by 0.5C or more. I expect that
+a combination of deep sleep and ESP-NOW would be ideal.
+
 # Bill of Materials
 
 Most parts are purchased from LCSC. Some of these choices aren't ideal, but I had them on hand and they work.
