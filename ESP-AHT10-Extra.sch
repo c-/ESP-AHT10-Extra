@@ -789,4 +789,6 @@ Text Notes 4650 700  0    59   ~ 12
 Nightlight
 Text Notes 4600 2150 0    50   ~ 0
 NOTE: on paper, we should\nuse a level shifter. Probably\nnot needed for a single LED.
+Text Notes 6800 700  0    50   ~ 0
+This might need a\n100nF decoupling cap.
 $EndSCHEMATC
