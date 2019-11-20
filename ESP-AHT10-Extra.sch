@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title ""
 Date ""
-Rev ""
+Rev "1.4"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -706,6 +706,5 @@ Wire Wire Line
 	9550 5750 9950 5750
 Wire Notes Line
 	4450 7700 4450 550 
-Text GLabel 1750 6300 0    50   Output ~ 0
-WLED
+NoConn ~ 1750 6300
 $EndSCHEMATC
