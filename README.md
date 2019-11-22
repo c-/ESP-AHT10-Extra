@@ -25,6 +25,14 @@ ESP starts to ramp up the temperatures. Testing shows that this sort of
 delay can spike the temperature reading by 0.5C or more. I expect that
 a combination of deep sleep and ESP-NOW would be ideal.
 
+# Design Notes
+
+The CH330N is running off the 5V rail, which *technically* means it's
+driving the ESP UART at (allowing for a 0.3v drop from D1) approx 4.2V,
+which is clearly above the 3.6V rated max for the ESP. This works, but
+it could stand to be looked at closer. Running the CH off the 3.3V rail
+would be better, but that's been harder to get stable than I like.
+
 # Bill of Materials
 
 Most parts are purchased from LCSC. Some of these choices aren't ideal, but I had them on hand and they work.
