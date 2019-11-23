@@ -29,9 +29,9 @@ a combination of deep sleep and ESP-NOW would be ideal.
 
 The CH330N is running off the 5V rail, which *technically* means it's
 driving the ESP UART at (allowing for a 0.3v drop from D1) approx 4.2V,
-which is clearly above the 3.6V rated max for the ESP. This works, but
-it could stand to be looked at closer. Running the CH off the 3.3V rail
-would be better, but that's been harder to get stable than I like.
+which is clearly above the 3.6V rated max for the ESP. In practice, the
+ESP-8266 is quite 5V tolerant on GPIO's, and the CH330N only drives at
+something like 4mA, so this probably isn't worth worrying about.
 
 # Bill of Materials
 

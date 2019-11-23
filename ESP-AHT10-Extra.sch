@@ -587,7 +587,7 @@ Wire Wire Line
 Wire Wire Line
 	10600 2850 10600 3000
 Text Notes 5800 5950 0    50   ~ 0
-NOTE: On paper, using 5V on VCC means\nwe drive TXD at 4.5V (well, 4.2V with\nthe drop from D1), which puts us above the\n3.6V max working range. 470R on TXD\nmight be a good idea. In practice, this\nseems to Just Work.\nALSO NOTE: Apparently WCH\nchips have on-board USB\ntermination resistors.
+NOTE: On paper, using 5V on VCC means\nwe drive TXD at 4.5V (well, 4.2V with\nthe drop from D1), which puts us above the\n3.6V specced working range. In practice,\nthe ESP-8266 is 5V tolerant on GPIO's.\n\nALSO NOTE: Apparently WCH\nchips have on-board USB\ntermination resistors.
 Wire Wire Line
 	8150 6050 9150 6050
 Wire Wire Line
