@@ -116,7 +116,7 @@
   (net 17 5V)
   (net 18 "Net-(R8-Pad2)")
   (net 19 "Net-(D1-Pad1)")
-  (net 20 RESET)
+  (net 20 "Net-(R2-Pad2)")
 
   (net_class Default "This is the default net class."
     (clearance 0.35)
@@ -134,10 +134,10 @@
     (add_net "Net-(D1-Pad1)")
     (add_net "Net-(R1-Pad2)")
     (add_net "Net-(R2-Pad1)")
+    (add_net "Net-(R2-Pad2)")
     (add_net "Net-(R4-Pad1)")
     (add_net "Net-(R5-Pad2)")
     (add_net "Net-(R8-Pad2)")
-    (add_net RESET)
     (add_net SCL)
     (add_net SDA)
     (add_net UD+)
@@ -343,7 +343,7 @@
     (pad 3 thru_hole oval (at 0 4 270) (size 2.5 1.1) (drill 0.65 (offset -0.7 0)) (layers *.Cu *.Mask F.SilkS)
       (net 5 "Net-(R1-Pad2)"))
     (pad 4 thru_hole oval (at 0 6 270) (size 2.5 1.1) (drill 0.65 (offset -0.7 0)) (layers *.Cu *.Mask F.SilkS)
-      (net 20 RESET))
+      (net 20 "Net-(R2-Pad2)"))
     (pad 5 thru_hole oval (at 0 8 270) (size 2.5 1.1) (drill 0.65 (offset -0.7 0)) (layers *.Cu *.Mask F.SilkS))
     (pad 6 thru_hole oval (at 0 10 270) (size 2.5 1.1) (drill 0.65 (offset -0.7 0)) (layers *.Cu *.Mask F.SilkS))
     (pad 7 thru_hole oval (at 0 12 270) (size 2.5 1.1) (drill 0.65 (offset -0.7 0)) (layers *.Cu *.Mask F.SilkS))
@@ -403,7 +403,7 @@
     (pad 2 thru_hole oval (at 0 -3.3 90) (size 2 1.6) (drill 1) (layers *.Cu *.Mask)
       (net 2 GND))
     (pad 1 thru_hole oval (at 0 3.3 90) (size 2 1.6) (drill 1) (layers *.Cu *.Mask)
-      (net 20 RESET))
+      (net 20 "Net-(R2-Pad2)"))
   )
 
   (module "CPB:Tact Switch 6mmx3.5mm C318817" (layer F.Cu) (tedit 5DD08D38) (tstamp 5DD327A0)
@@ -917,7 +917,7 @@
     (pad 1 smd roundrect (at -0.9375 0 90) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25)
       (net 6 "Net-(R2-Pad1)"))
     (pad 2 smd roundrect (at 0.9375 0 90) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25)
-      (net 20 RESET))
+      (net 20 "Net-(R2-Pad2)"))
     (model ${KISYS3DMOD}/Resistor_SMD.3dshapes/R_0805_2012Metric.wrl
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
