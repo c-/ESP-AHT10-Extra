@@ -700,11 +700,8 @@ RESET
 Wire Wire Line
 	1450 5200 1450 5900
 Connection ~ 1450 5900
-Text GLabel 9950 5750 2    50   Output ~ 0
-RESET
-Wire Wire Line
-	9550 5750 9950 5750
 Wire Notes Line
 	4450 7700 4450 550 
 NoConn ~ 1750 6300
+NoConn ~ 9550 5750
 $EndSCHEMATC
