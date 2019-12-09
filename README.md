@@ -1,6 +1,6 @@
 # ESP-AHT10-Extra
 
-Minimalist ESP-8266 temperature/humidity sensor.
+Minimalist ESP-8266 temperature/humidity sensor/programmer.
 
 This is a Kicad design which uses a PCB USB connector and integrates an ESP-12 (or 07),
 CH330N USB controller, a small voltage regulator (HT7233), and a AHT-10
@@ -12,6 +12,23 @@ My prototype was done on a PCB mill (0.3mm 30 degree V-bit), so things like trac
 and clearances reflect that.
 
 ![PCB Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back.jpg)
+
+# Assembly
+
+This PCB is designed for reflow soldering of the SMD components. I'm sure
+someone *can* hand solder it, but it wouldn't be me.
+
+R3 should be left out if the ESP modules being used have an
+internal pullup between RST and 3V3 (which most newer ones seem to
+have). Otherwise, you end up with a combined pullup resistance near 5k,
+and GPIO16 though a 1k resistor seems to struggle to pulse that long
+enough to perform a proper wake. I really need a scope to dig into this
+further.
+
+I prefer to mount my ESP modules on 2mm pin headers. It's not really
+necessary unless you screw up designs as often as I do. However, doing so
+technically makes all the USB stuff optional for some boards since I can
+just remove the module for programming.
 
 # Usage
 
@@ -35,9 +52,11 @@ something like 4mA, so this probably isn't worth worrying about.
 
 # Bill of Materials
 
-Most parts are purchased from LCSC. Some of these choices aren't ideal, but I had them on hand and they work.
-The only things I plan on doing differently is replacing the fuse with a 300mA and changing the HT-7233 out for a
-SOT-23-3 version. A design based around one of the more common DFN-6 sensors like the Si70xx series might happen down the road.
+Most parts are purchased from LCSC. Some of these choices aren't ideal,
+but I had them on hand and they work.  The only things I plan on doing
+differently is replacing the fuse with a 300mA and changing the HT-7233
+out for a SOT-23-3 version. A design based around one of the more common
+DFN-6 sensors like the Si70xx series might happen down the road.
 
 * ESP-12 (I mount mine on 2mm pin headers)
 * [Aosong AHT-10](https://lcsc.com/product-detail/Temperature-Humidity-Sensors_Aosong-Guangzhou-Elec-AHT10_C368909.html)
@@ -53,5 +72,6 @@ SOT-23-3 version. A design based around one of the more common DFN-6 sensors lik
 * [200mA (hold) 0805 fuse](https://lcsc.com/product-detail/PTC-Resettable-Fuses_BOURNS-MF-PSMF020X-2_C89657.html) (should probably be more like 300mA)
 * [SPST Tactile Switches](https://lcsc.com/product-detail/Tactile-Switches_HYP-Hongyuan-Precision-1TS002A-2300-5000_C318817.html)
 
-Strictly speaking, most of the USB protection components aren't *necessary* for a simple sensor
-device and definitely complicated the build.
+Strictly speaking, most of the USB protection components aren't
+*necessary* for a simple sensor device and definitely complicated
+the build.
