@@ -630,36 +630,13 @@ Wire Wire Line
 	1050 1350 1150 1350
 Wire Wire Line
 	1650 1350 1800 1350
-$Comp
-L Device:C_Small C8
-U 1 1 5DCC64D0
-P 7600 5150
-F 0 "C8" H 7692 5196 50  0000 L CNN
-F 1 "10u" H 7692 5105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 7600 5150 50  0001 C CNN
-F 3 "~" H 7600 5150 50  0001 C CNN
-	1    7600 5150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	9150 4900 9150 5250
-Wire Wire Line
-	7450 4900 7600 4900
 Wire Wire Line
 	7950 5250 7950 6050
 Wire Wire Line
 	7950 6050 8150 6050
 Connection ~ 8150 6050
-Wire Wire Line
-	7600 5250 7600 6050
-Wire Wire Line
-	7600 6050 7950 6050
-Connection ~ 7950 6050
-Wire Wire Line
-	7600 5050 7600 4900
-Connection ~ 7600 4900
-Wire Wire Line
-	7600 4900 7950 4900
 Wire Wire Line
 	7950 5050 7950 4900
 Connection ~ 7950 4900
@@ -699,4 +676,6 @@ Wire Notes Line
 	4450 7700 4450 550 
 NoConn ~ 1750 6300
 NoConn ~ 9550 5750
+Wire Wire Line
+	7450 4900 7950 4900
 $EndSCHEMATC
