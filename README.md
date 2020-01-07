@@ -2,6 +2,8 @@
 
 Minimalist ESP-8266 temperature/humidity sensor/programmer.
 
+![OSHPark PCB](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/oshpark.jpg)
+
 This is a Kicad design which uses a PCB USB connector and integrates an ESP-12 (or 07),
 CH330N USB controller, a small voltage regulator (HT7233), and a AHT-10
 temperature/humidity sensor. Flash and reset buttons are also included.
