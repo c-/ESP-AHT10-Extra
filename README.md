@@ -15,6 +15,9 @@ and clearances reflect that.
 
 ![PCB Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back.jpg)
 
+If you don't want to roll your own PCB's, [Oshpark does a nice job on these
+at a great price](https://oshpark.com/shared_projects/cgQTgHM4).
+
 # Assembly
 
 This PCB is designed for reflow soldering of the SMD components. I'm sure
