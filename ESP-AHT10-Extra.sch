@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title ""
 Date ""
-Rev "1.4"
+Rev "1.5"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -161,24 +161,7 @@ NoConn ~ 1750 6000
 NoConn ~ 1750 6400
 NoConn ~ 1750 6500
 NoConn ~ 3550 6400
-$Comp
-L Holtek:HT7233 U2
-U 1 1 5DBE1C35
-P 2600 1400
-F 0 "U2" H 2600 1715 50  0000 C CNN
-F 1 "HT7233" H 2600 1624 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5" H 1900 1150 50  0001 C CNN
-F 3 "" H 2600 1550 50  0001 C CNN
-	1    2600 1400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2150 1450 2050 1450
-Wire Wire Line
-	2050 1450 2050 1350
 Connection ~ 2050 1350
-Wire Wire Line
-	2050 1350 2150 1350
 $Comp
 L Device:C_Small C2
 U 1 1 5DBE3E3F
@@ -212,12 +195,8 @@ F 3 "" H 2600 1900 50  0001 C CNN
 	1    2600 1900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2600 1750 2600 1850
 Text GLabel 3350 1350 2    50   Output ~ 0
 3V3
-Wire Wire Line
-	3050 1350 3200 1350
 Wire Wire Line
 	3200 1350 3200 1500
 Connection ~ 3200 1350
@@ -678,4 +657,21 @@ NoConn ~ 1750 6300
 NoConn ~ 9550 5750
 Wire Wire Line
 	7450 4900 7950 4900
+$Comp
+L Regulator_Linear:MCP1700-3302E_SOT23 U2
+U 1 1 5E196253
+P 2600 1350
+F 0 "U2" H 2600 1592 50  0000 C CNN
+F 1 "HT7233" H 2600 1501 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2600 1575 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001826C.pdf" H 2600 1350 50  0001 C CNN
+	1    2600 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 1350 2300 1350
+Wire Wire Line
+	2600 1650 2600 1850
+Wire Wire Line
+	2900 1350 3200 1350
 $EndSCHEMATC
