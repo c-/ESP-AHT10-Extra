@@ -23,6 +23,11 @@ void setup() {
 
   // start a light reading now. We're using the defaults, so it's a 100 second
   // integration time.
+  // NOTE... the LTR-303 seems to be very... pissy. I'm suspecting that
+  // there's some transient power draw that happens when wireless is enabled which
+  // destabilizes the LTR-303 while it's processing, so in practice you can't do this,
+  // *then* do the wireless connection, and then do a reading... the LTR-303 just goes
+  // off into lala land.
   ltr303.setControl(0,false,true);
  
   double tt, rh;
@@ -33,11 +38,11 @@ void setup() {
 
   boolean valid, intr, data;
   byte gain;
-  while( ltr303.getStatus(valid, gain, intr, data) ) {
-    // we're only going for one reading, so valid is all we need; we don't
-    // care if it's "new" data. However... sometimes we'll get the data flag
-    // set and valid stays false?
-    if( valid || data ) break;
+  while( ltr303.getStatus(invalid, gain, intr, data) ) {
+    // we're only going for one reading, so we just need good data.
+    // new data is a nice to have. NOTE: the API calls it "valid", but
+    // the actual bit interpretation per the datasheet is 0=>good, 1=>bad
+    if( invalid==false || data ) break;
     delay(20);
 
     // NOTE: a timeout would be smart
