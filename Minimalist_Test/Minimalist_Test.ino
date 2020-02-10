@@ -36,7 +36,7 @@ void setup() {
     Serial.printf("Relative Humidity %g%%\n", rh);
   }
 
-  boolean valid, intr, data;
+  boolean invalid, intr, data;
   byte gain;
   while( ltr303.getStatus(invalid, gain, intr, data) ) {
     // we're only going for one reading, so we just need good data.
