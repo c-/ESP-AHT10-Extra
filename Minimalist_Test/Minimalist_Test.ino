@@ -22,14 +22,19 @@ void setup() {
   ltr303.begin();
 
   // start a light reading now. We're using the defaults, so it's a 100 second
-  // integration time.
+  // integration time, and yeah, the sensor won't send anything back for
+  // 100ms.
   // NOTE... the LTR-303 seems to be very... pissy. I'm suspecting that
   // there's some transient power draw that happens when wireless is enabled which
   // destabilizes the LTR-303 while it's processing, so in practice you can't do this,
   // *then* do the wireless connection, and then do a reading... the LTR-303 just goes
-  // off into lala land.
+  // off into lala land. So when I'm using the network, I'll normally initialize the
+  // sensors, perform my readings, put them into standby, then bring up wireless and
+  // transmit.
   ltr303.setControl(0,false,true);
- 
+
+  // take the temperature readings as early as possible. You also want to do this
+  // before bringing up wireless or anything that takes time; things will warm up *fast*.
   double tt, rh;
   if( aht10.getReading(&tt,&rh) ) {
     Serial.printf("Temperature %gC\n", tt);
