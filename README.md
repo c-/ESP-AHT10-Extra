@@ -1,39 +1,52 @@
 # ESP-AHT10-Extra
 
-Minimalist ESP-8266 temperature/humidity sensor/programmer.
+Minimalist/compact ESP-8266 environmental sensor/programmer.
 
 ![OSHPark PCB](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/oshpark.jpg)
 
 This is a Kicad design which uses a PCB USB connector and integrates an ESP-12 (or 07),
-CH330N USB controller, a small voltage regulator (HT7233), and a AHT-10
-temperature/humidity sensor. Flash and reset buttons are also included.
+CH330N USB controller, a small voltage regulator (HT7233), an AHT-10
+temperature/humidity sensor, and a LTR-303 ambient light sensor.
+Flash and reset buttons are also included.
 
 ![PCB Front](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/front.jpg)
 
-My prototype was done on a PCB mill (0.3mm 30 degree V-bit), so things like trace sizes
-and clearances reflect that.
+My prototype was done on a PCB mill (0.3mm 30 degree V-bit), so things
+like trace sizes and clearances reflect that. 0805 passives are used since
+that's as small as I can go and still be able to route a trace between
+the pads.
 
 ![PCB Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back.jpg)
 
 If you don't want to roll your own PCB's, [Oshpark does a nice job on these
-at a great price](https://oshpark.com/shared_projects/cgQTgHM4).
+at a great price](https://oshpark.com/shared_projects/1bZT7I2E).
 
 # Assembly
 
-This PCB is designed for reflow soldering of the SMD components. I'm sure
-someone *can* hand solder it, but it wouldn't be me.
+This PCB is designed for reflow soldering of the SMD components (I use
+hot air). I'm sure someone *can* hand solder it, but it wouldn't be me.
+
+Either or both sensors can be left off entirely, as the application
+dictates.
 
 R3 should be left out if the ESP modules being used have an
 internal pullup between RST and 3V3 (which most newer ones seem to
 have). Otherwise, you end up with a combined pullup resistance near 5k,
 and GPIO16 though a 1k resistor seems to struggle to pulse that long
-enough to perform a proper wake. I really need a scope to dig into this
-further.
+enough to perform a proper wake. With the modules I've tested (ESP-12E,
+ESP-12F, ESP-07) there's been zero issues with deep sleep wake and R3
+unpopulated.
 
-I prefer to mount my ESP modules on 2mm pin headers. It's not really
+I usually mount my ESP modules on 2mm pin headers. It's not really
 necessary unless you screw up designs as often as I do. However, doing so
 technically makes all the USB stuff optional for some boards since I can
-just remove the module for programming.
+just remove the module for programming. On the other hand, I'm keeping the
+USB stuff as I'm finding these boards are an extremely convenient programmers
+for my pluggable modules.
+
+The standard 1.6mm PCB is too thin to solidly fit most USB ports. I use
+a thin (0.5mm) 3D printed shim on the front to bring the thickness up.
+Having the board made from ~2.0mm would be smarter.
 
 # Usage
 
@@ -47,6 +60,18 @@ ESP starts to ramp up the temperatures. Testing shows that this sort of
 delay can spike the temperature reading by 0.5C or more. I expect that
 a combination of deep sleep and ESP-NOW would be ideal.
 
+I still not sure what I'm going to use the ambient light sensor,
+but it fits the design nicely. Unfortunately, orientation matters and not
+all USB jacks are going to cooperate with that.
+
+A minimal example sketch is included. It requires an AHT10 library (I
+rolled my own, at https://github.com/c-/SnoutnetAHT10/, but others exists,
+YYMV, etc) and the LTR-303 library at https://github.com/c-/LTR303.
+The [original automote version](https://github.com/automote/LTR303) is
+available, but it's pretty buggy. Even with my fixes,
+pay attention to the notes in the example sketch because that ALS itself is
+a bit *sensitive*.
+
 # Design Notes
 
 The CH330N is running off the 5V rail, which *technically* means it's
@@ -55,28 +80,37 @@ which is clearly above the 3.6V rated max for the ESP. In practice, the
 ESP-8266 is quite 5V tolerant on GPIO's, and the CH330N only drives at
 something like 4mA, so this probably isn't worth worrying about.
 
+The decoupling capacitance shared by the two sensors might be a bit low.
+The ALS recommends 1uF, but in practice that doesn't seem to help any
+of the stability problems I've encountered with it.
+
+I've found that 10K pullups on the I2C sensors works in most cases, but
+4.7K might be better. Still testing that.
+
+No auto-reset/program circuit is included; you'll have to use buttons like
+some kind of caveman.
+
 # Bill of Materials
 
-Most parts are purchased from LCSC. Some of these choices aren't ideal,
-but I had them on hand and they work.  The only things I plan on doing
-differently is replacing the fuse with a 300mA and changing the HT-7233
-out for a SOT-23-3 version. A design based around one of the more common
+Most parts are from LCSC. Some of these choices aren't ideal, but I had
+them on hand and they work.  A design based around one of the more common
 DFN-6 sensors like the Si70xx series might happen down the road.
 
-* ESP-12 (I mount mine on 2mm pin headers)
-* [Aosong AHT-10](https://lcsc.com/product-detail/Temperature-Humidity-Sensors_Aosong-Guangzhou-Elec-AHT10_C368909.html)
+* ESP-12 (I *usually* mount mine on 2mm pin headers)
+* [Aosong AHT-10 Temperature/Humidity Sensor](https://lcsc.com/product-detail/Temperature-Humidity-Sensors_Aosong-Guangzhou-Elec-AHT10_C368909.html)
+* [LiteOn LTR-303ALS-01 Ambient Light Sensor](https://lcsc.com/product-detail/Ambient-Light-Sensors_Lite-On-LTR-303ALS-01_C364577.html)
 * [CH330N USB Controller](https://lcsc.com/product-detail/USB-ICs_Jiangsu-Qin-Heng-CH330N_C108996.html)
-* [Holtek HT-7233 SOT-23-5](https://lcsc.com/product-detail/Low-Dropout-Regulators-LDO_HT7233_C77938.html)
+* [Holtek HT-7233 SOT-23-3](https://lcsc.com/product-detail/Low-Dropout-Regulators-LDO_Holtek-Semicon-HT7233_C47970.html)
 * [STMicroelectronics USBLC6-2SC6 SOT-23-6](https://lcsc.com/product-detail/Diodes-ESD_STMicroelectronics_USBLC6-2SC6_USBLC6-2SC6_C7519.html)
 * 100nF 0805 capacitors
 * 10uF 0805 capacitors
 * 10k 0805 resistors
 * 1k 0805 resistor
-* 330R 0805 resistor (should really be a 470)
+* 470R 0805 resistor
 * [B5817W SOD-123F Schottky barrier diode](https://lcsc.com/product-detail/Schottky-Barrier-Diodes-SBD_Shikues-B5817WL_C122853.html)
-* [200mA (hold) 0805 fuse](https://lcsc.com/product-detail/PTC-Resettable-Fuses_BOURNS-MF-PSMF020X-2_C89657.html) (should probably be more like 300mA)
+* [350mA (hold) 0805 fuse](https://lcsc.com/product-detail/PTC-Resettable-Fuses_BOURNS-MF-PSMF035X-2_C116172.html)
 * [SPST Tactile Switches](https://lcsc.com/product-detail/Tactile-Switches_HYP-Hongyuan-Precision-1TS002A-2300-5000_C318817.html)
 
 Strictly speaking, most of the USB protection components aren't
-*necessary* for a simple sensor device and definitely complicated
-the build.
+*necessary* for a simple sensor device, but I had the parts and the
+space...
