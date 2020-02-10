@@ -44,10 +44,10 @@ void setup() {
   boolean invalid, intr, data;
   byte gain;
   while( ltr303.getStatus(invalid, gain, intr, data) ) {
-    // we're only going for one reading, so we just need good data.
-    // new data is a nice to have. NOTE: the API calls it "valid", but
-    // the actual bit interpretation per the datasheet is 0=>good, 1=>bad
-    if( invalid==false || data ) break;
+    // in theory, we could use "old" data, but since we just woke up and
+    // kicked the sensor, we don't have any old data we can trust.
+    // So wait for the integration to commplete (100ms).
+    if( data ) break;
     delay(20);
 
     // NOTE: a timeout would be smart
