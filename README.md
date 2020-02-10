@@ -2,24 +2,27 @@
 
 Minimalist/compact ESP-8266 environmental sensor/programmer.
 
-![OSHPark PCB](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/oshpark.jpg)
+![Sensor Front](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/front_1.5.jpg)
 
-This is a Kicad design which uses a PCB USB connector and integrates an ESP-12 (or 07),
-CH330N USB controller, a small voltage regulator (HT7233), an AHT-10
-temperature/humidity sensor, and a LTR-303 ambient light sensor.
-Flash and reset buttons are also included.
+This is a Kicad design which uses a PCB USB connector and integrates a
+ESP-12 (or 07), CH330N USB controller, a small voltage regulator
+(HT7233), an AHT-10 temperature/humidity sensor, and a LTR-303
+ambient light sensor. Flash and reset buttons are also included.
 
-![PCB Front](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/front.jpg)
+![Sensor Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back_1.5.jpg)
 
 My prototype was done on a PCB mill (0.3mm 30 degree V-bit), so things
 like trace sizes and clearances reflect that. 0805 passives are used since
 that's as small as I can go and still be able to route a trace between
 the pads.
 
-![PCB Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back.jpg)
+![Milled Back](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/back.jpg)
 
 If you don't want to roll your own PCB's, [Oshpark does a nice job on these
-at a great price](https://oshpark.com/shared_projects/1bZT7I2E).
+at a great price](https://oshpark.com/shared_projects/1bZT7I2E). The PCB is
+approx 39mm x 21mm.
+
+![OSHPark PCB](https://github.com/c-/ESP-AHT10-Extra/blob/master/Images/boards_1.5.jpg)
 
 # Assembly
 
