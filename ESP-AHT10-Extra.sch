@@ -662,36 +662,16 @@ Wire Wire Line
 	2600 1650 2600 1850
 Wire Wire Line
 	2900 1350 3200 1350
-$Comp
-L Sensor_Optical:LTR-303ALS-01 U6
-U 1 1 5E1A5ABC
-P 3350 3500
-F 0 "U6" H 3791 3546 50  0000 L CNN
-F 1 "LTR-303ALS-01" H 3400 3100 50  0000 L CNN
-F 2 "CPB:Lite-On_LTR-303ALS-01_NoIntNoNc" H 3350 3950 50  0001 C CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS86-2013-0004/LTR-303ALS-01_DS_V1.pdf" H 3050 3850 50  0001 C CNN
-	1    3350 3500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2650 3600 2950 3600
-Wire Wire Line
-	2350 3400 2950 3400
 Wire Wire Line
 	2250 3600 2650 3600
 Wire Wire Line
 	2650 3800 2650 3600
 Wire Wire Line
-	2350 3800 2350 3400
+	2350 3800 2350 3700
 Wire Wire Line
 	1700 4100 3350 4100
 Wire Wire Line
-	3350 4100 3350 3900
-NoConn ~ 3750 3500
-Wire Wire Line
 	1700 2800 2350 2800
-Wire Wire Line
-	3350 2800 3350 3100
 Wire Wire Line
 	2650 2950 2650 2800
 Connection ~ 2650 2800
@@ -705,6 +685,53 @@ Wire Wire Line
 Connection ~ 2350 2950
 Wire Wire Line
 	2350 2950 2350 2800
-Text Notes 3000 4450 0    50   ~ 0
-LTR-303 should be close enough\nto the AHT to get away without a\ndecoupling capacitor.
+$Comp
+L VEML7700:VEML7700 U6
+U 1 1 5E6B90B2
+P 3350 3500
+F 0 "U6" H 3100 3800 50  0000 L CNN
+F 1 "VEML7700" H 2850 3150 50  0000 L CNN
+F 2 "CPB:VEML7700" H 3100 3700 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/84286/veml7700.pdf" H 3200 3800 50  0001 C CNN
+	1    3350 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 2800 3350 3050
+Wire Wire Line
+	3350 3950 3350 4100
+Wire Wire Line
+	2900 3450 2800 3450
+Wire Wire Line
+	2800 3450 2800 3600
+Wire Wire Line
+	2800 3600 2650 3600
+Wire Wire Line
+	2900 3600 2900 3700
+Wire Wire Line
+	2900 3700 2350 3700
+Connection ~ 2350 3700
+Wire Wire Line
+	2350 3700 2350 3400
+$Comp
+L Device:C_Small C8
+U 1 1 5E6C6864
+P 3650 3000
+F 0 "C8" H 3742 3046 50  0000 L CNN
+F 1 "100n" H 3742 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3650 3000 50  0001 C CNN
+F 3 "~" H 3650 3000 50  0001 C CNN
+	1    3650 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 2800 3650 2900
+Wire Wire Line
+	3350 2800 3650 2800
+Connection ~ 3350 2800
+Wire Wire Line
+	3650 3100 3650 4100
+Wire Wire Line
+	3650 4100 3350 4100
+Connection ~ 3350 4100
 $EndSCHEMATC
