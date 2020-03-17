@@ -487,7 +487,7 @@ L Device:Polyfuse_Small F1
 U 1 1 5DC7CFA1
 P 1550 1350
 F 0 "F1" V 1345 1350 50  0000 C CNN
-F 1 "200mA" V 1436 1350 50  0000 C CNN
+F 1 "350mA" V 1436 1350 50  0000 C CNN
 F 2 "Fuse:Fuse_0805_2012Metric" H 1600 1150 50  0001 L CNN
 F 3 "~" H 1550 1350 50  0001 C CNN
 	1    1550 1350
@@ -677,12 +677,9 @@ Wire Wire Line
 Connection ~ 2650 2800
 Wire Wire Line
 	2650 2800 3350 2800
-Wire Wire Line
-	2350 3000 2350 2950
 Connection ~ 2350 2800
 Wire Wire Line
 	2350 2800 2650 2800
-Connection ~ 2350 2950
 Wire Wire Line
 	2350 2950 2350 2800
 $Comp
