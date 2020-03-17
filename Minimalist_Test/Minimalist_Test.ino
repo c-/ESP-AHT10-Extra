@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <LTR303.h>
+#include <VEML7700.h>
 #include <SnoutnetAHT10.h>
 
 # define SDAPIN 4
@@ -16,23 +16,17 @@ void setup() {
   Wire.begin(SDAPIN, SCLPIN);
 
   SnoutnetAHT10 aht10;
-  LTR303 ltr303;
+  VEML7700 veml7700;
 
   aht10.begin();
-  ltr303.begin();
+  veml7700.begin();
 
-  // start a light reading now. We're using the defaults, so it's a 100 second
-  // integration time, and yeah, the sensor won't send anything back for
-  // 100ms.
-  // NOTE... the LTR-303 seems to be very... pissy. I'm suspecting that
-  // there's some transient power draw that happens when wireless is enabled which
-  // destabilizes the LTR-303 while it's processing, so in practice you can't do this,
-  // *then* do the wireless connection, and then do a reading... the LTR-303 just goes
-  // off into lala land. So when I'm using the network, I'll normally initialize the
-  // sensors, perform my readings, put them into standby, then bring up wireless and
-  // transmit.
-  ltr303.setControl(0,false,true);
-
+  // start a light reading now.
+  if( VEML7700::STATUS_OK == veml7700.setPower(1) ) {
+    veml7700.setGain(VEML7700::ALS_GAIN_x1);
+    veml7700.setIntegrationTime(VEML7700::ALS_INTEGRATION_100ms);
+  }
+  
   // take the temperature readings as early as possible. You also want to do this
   // before bringing up wireless or anything that takes time; things will warm up *fast*.
   double tt, rh;
@@ -41,28 +35,14 @@ void setup() {
     Serial.printf("Relative Humidity %g%%\n", rh);
   }
 
-  boolean invalid, intr, data;
-  byte gain;
-  while( ltr303.getStatus(invalid, gain, intr, data) ) {
-    // in theory, we could use "old" data, but since we just woke up and
-    // kicked the sensor, we don't have any old data we can trust.
-    // So wait for the integration to commplete (100ms).
-    if( data ) break;
-    delay(20);
-
-    // NOTE: a timeout would be smart
-  }
-  
-  unsigned data0, data1;
-  if( ltr303.getData(data0, data1) ) {
-    double lux;
-    if( ltr303.getLux(0,0,data0,data1,lux) ) {
-      Serial.printf("Ambient Light %glux\n", lux);
-    }
+  veml7700.sampleDelay();
+  float lux;
+  if( VEML7700::STATUS_OK == veml7700.getALSLux(lux) ) {
+    Serial.printf("Ambient Light %glux\n", lux);
   }
 
-  // put the LTR into standby mode
-  ltr303.setControl(0,false,false);
+  // power down the ALS. The AHT10 is run in one-shot mode.
+  veml7700.setPower(0);
 
   // 60 seconds of deep sleep
   ESP.deepSleep(60 * 1000000);
